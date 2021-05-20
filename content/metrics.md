@@ -1,8 +1,8 @@
-title: Thoughts about vulnerability management metrics
+title: It's not about the number of vulnerabilities. It's about the risk.
 date: 2021-05-20
 modified: 2021-05-20
 category: Security
-slug: vulnerability-management-metrics
+slug: its-not-about-number-of-vulnerabilities-its-about-the-risk
 author: fcano
 
 These are my thoughts about vulnerability management metrics after reading [Business-friendly vulnerability management metrics](https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705).
