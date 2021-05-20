@@ -4,32 +4,42 @@
         <meta charset="utf-8" />
         <meta name="generator" content="Pelican" />
         <title>Cybersecurity Notes - fcano</title>
-        <link rel="stylesheet" href="/theme/css/main.css" />
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Atom Feed" />
+        <link rel="stylesheet" href="fcano.github.io/theme/css/main.css" />
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="/">Cybersecurity Notes</a></h1>
+                <h1><a href="fcano.github.io/">Cybersecurity Notes</a></h1>
                 <nav><ul>
-                    <li><a href="/category/misc.html">misc</a></li>
+                    <li><a href="fcano.github.io/category/security.html">Security</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/first-post.html">First Post</a></h1>
+                    <h1 class="entry-title"><a href="fcano.github.io/vulnerability-management-metrics.html">Thoughts about vulnerability management metrics</a></h1>
 <footer class="post-info">
         <abbr class="published" title="2021-05-20T00:00:00+02:00">
                 Published: jue 20 mayo 2021
         </abbr>
+		<br />
+        <abbr class="modified" title="2021-05-20T00:00:00+02:00">
+                Updated: jue 20 mayo 2021
+        </abbr>
 
         <address class="vcard author">
-                By                         <a class="url fn" href="/author/fcano.html">fcano</a>
+                By                         <a class="url fn" href="fcano.github.io/author/fcano.html">fcano</a>
         </address>
-<p>In <a href="/category/misc.html">misc</a>.</p>
+<p>In <a href="fcano.github.io/category/security.html">Security</a>.</p>
 
-</footer><!-- /.post-info --><p>Hello, world!</p>                </article>
+</footer><!-- /.post-info --><p>These are my thoughts about vulnerability management metrics after reading https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705.</p>
+<p>The metrics described in the article above mainly measure the time that our assets have been vulnerable, taking into account the intensity (the number of vulnerabilities). The information of vulnerabilities is taken from vulnerability scanners.</p>
+<p>The author defends that his measurement is more advanced and better than just measuring the number of vulnerabilities and the number of assets. My opinion about how to measure the risk we face due to vulnerabilities is different.</p>
+<p>If I'm the person accountable for the risk of being affected by the exploitation of a vulnerability, what really matters to me is the real probability of a vulnerability being exploited and the damage that can be done with it, and not the quantity of vulnerabilities or the time they are open. What I want is to know very well these real dangerous vulnerabilities. So, I think we should focus on "quality" of the vulnerabilities, and not the number of them.</p>
+<p>When we measure people about the number of vulnerabilities, they tend to fix more vulnerabilities. But that is not what we want to reduce the risk in an effective way. We want thay they fix the vulnerabilities that with more probability can allow a malicious actor to hack or damage my organization. I prefer that they fix much less vulnerabilities, but more important.</p>
+<p>In order to determine how important is a vulnerability, we have to think about the probability of exploitation and the impact it would cause if it is successfully exploited. For that, we have to take into account if the vulnerability is exploitable from the outside of the company or only from the inside. Also, if in order to exploit the vulnerability the attacker can be unathenticated or if some kind of account or permissions are needed. Also it is important to know if the vulnerability is easy to exploit (it is trivial, exploits do exist in the wild) or if it is difficult (only in theory, only in a lab, only by advanced researchers). We have to think also if there are mitigating factors that reduce the probability of being exploited. For me, the most critical vulnerability would be a vulnerability that can be exploited from the outside, in a trivial way, and that would give direct access to a critical database (the importance of the  asset is another factor that we have to take into account). I prefer to have 1000 internal vulnerabilities that are difficult to exploit the whole year than one of these vulnerabilities one day (maybe I'm exaggerating, but you get the point).</p>
+<p>It is true that doing this analysis we can be wrong and a vulnerability that seems difficult to exploit is exploited and we get hacked. But it is also true that we have to prioritize our work (time is limited!), and we cannot aim to fix all vulnerabilities without prioritizen them.</p>
+<p>There are vulnerabilities that you can manage in bulk. For example, Windows vulnerabilities. I don't think you should analyze one by one each Windows vulnerability after Patch Tuesday. Maybe the most critical ones to decide if you have to run. But the rest, I think you just have to install them as soon as possible by using an as-safe-as-possible procedure.</p>                </article>
             </aside><!-- /#featured -->
         <section id="extras" class="body">
                 <div class="blogroll">
@@ -44,7 +54,6 @@
                 <div class="social">
                         <h2>social</h2>
                         <ul>
-                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
                             <li><a href="#">You can add links in your config file</a></li>
                             <li><a href="#">Another social link</a></li>

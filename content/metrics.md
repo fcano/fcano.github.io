@@ -1,3 +1,10 @@
+title: Thoughts about vulnerability management metrics
+date: 2021-05-20
+modified: 2021-05-20
+category: Security
+slug: vulnerability-management-metrics
+author: fcano
+
 These are my thoughts about vulnerability management metrics after reading https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705.
 
 The metrics described in the article above mainly measure the time that our assets have been vulnerable, taking into account the intensity (the number of vulnerabilities). The information of vulnerabilities is taken from vulnerability scanners.
