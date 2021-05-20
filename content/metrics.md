@@ -19,7 +19,8 @@ In order to determine how important is a vulnerability, we have to think about t
 
 For me, the most critical vulnerability would be a vulnerability that can be exploited from the outside, in a trivial way, and that would give direct access to a critical database (the importance of the asset is another factor that we have to take into account). I prefer to have 1000 internal vulnerabilities difficult to exploit the whole year than one of vulnerability that can be exploited by unathenticated users, from the outside, and that would give access to a credit card database during 1 hour.
 
-More interesting metrics for me are:
+These are some metrics that are more interesting for me:
+
 * Time between an Important or Critical vulnerability is public and we know about it.
 * Time between an Important or Critical vulnerability is public and we fix or mitigate it (mitigate = reduce to Moderate or Low by applying security controls).
 * Time between we have an Important or Critical vulnerability (when not related to third parties, but only affects us, like an insecure configuration) and we know about it.
