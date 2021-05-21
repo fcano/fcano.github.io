@@ -7,6 +7,8 @@ SITEURL = 'fcano.github.io'
 
 PATH = 'content'
 
+STATIC_PATHS = ['images']
+
 TIMEZONE = 'Europe/Madrid'
 
 DEFAULT_LANG = 'en'
