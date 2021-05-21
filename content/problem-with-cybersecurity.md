@@ -17,7 +17,7 @@ Goldratt's principle of Inherent Simplicity states that any complex problem, at 
 
 This is the CRT that I wrote for the cybersecurity problem:
 
-![Cybersecurity CRT]({filename}/images/cybersecurity_crt.jpg)
+<img alt="Cybersecurity CRT" src="/images/cybersecurity_crt.jpg" width="780px">
 
 # Companies continue having severe cybersecurity incidents.
 
