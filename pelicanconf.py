@@ -3,7 +3,7 @@
 
 AUTHOR = 'fcano'
 SITENAME = 'Cybersecurity Notes'
-SITEURL = 'fcano.github.io'
+SITEURL = 'https://fcano.github.io'
 
 PATH = 'content'
 
@@ -19,8 +19,6 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-
-DISQUS_SITENAME = 'cybersecurity-notes'
 
 # Social widget
 SOCIAL = (('twitter', 'http://twitter.com/florenciocano'),
