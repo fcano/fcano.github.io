@@ -5,7 +5,7 @@
 &lt;p&gt;The CRT does not state any solutions, only problems (causes of the UDEs, causes of the causes of the UDEs, etc.). The last causes, those on the bottom, are the root causes. That means that if we solve the root causes, we will solve the the problems derived from them.&lt;/p&gt;
 &lt;p&gt;Goldratt's principle of Inherent Simplicity states that any complex problem, at the end, only have a few (probably one or two) root causes. That is fantastic because it means that the tree is not infinite, but it ends in only a few of causes.&lt;/p&gt;
 &lt;p&gt;This is the CRT that I wrote for the cybersecurity problem:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="Cybersecurity CRT" src="/images/cybersecurity_crt.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Cybersecurity CRT" src="/images/cybersecurity_crt.jpg" width="780px"&gt;&lt;/p&gt;
 &lt;h1&gt;Companies continue having severe cybersecurity incidents.&lt;/h1&gt;
 &lt;p&gt;Our main and starting UDE is on the top: Companies continue having severe cybersecurity incidents. That is a fact. But, what are the reasons? For me, the first direct reason, we may like it or not, is that the companies don't have enough cybersecurity controls. If they had enough cybersecurity controls, independently of everything else, severe cybersecurity incidents won't happen. Let's continue with the causes for "Companies don't have enough cybersecurity controls".&lt;/p&gt;
 &lt;p&gt;Companies don't have enough cybersecurity controls due to one or more of these reasons:&lt;/p&gt;
