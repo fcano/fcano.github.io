@@ -1,53 +1,164 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <title>Cybersecurity Notes - Security category</title>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <link href="https://fcano.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Full Atom Feed" />
-        <link href="https://fcano.github.io/feeds/security.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Categories Atom Feed" />
-</head>
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://fcano.github.io/">Cybersecurity Notes</a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-            <li class="active"><a href="https://fcano.github.io/category/security.html">Security</a></li>
-        </ul></nav><!-- /#menu -->
-<section id="content">
-<h2>Articles in the Security category</h2>
+		<title>Cybersecurity Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="fcano">
 
-<ol id="post-list">
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html" rel="bookmark" title="Permalink to Looking for the root cause of current cybersecurity problems">Looking for the root cause of current cybersecurity problems</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2021-05-21T00:00:00+02:00"> vie 21 mayo 2021 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://fcano.github.io/author/fcano.html">fcano</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>I love Goldratt books (<a href="https://www.goodreads.com/book/show/113934.The_Goal">The Goal</a>, <a href="https://www.goodreads.com/book/show/157385.It_s_Not_Luck?from_search=true&amp;from_srp=true&amp;qid=dQEjWkU3CN&amp;rank=1">It's Not Luck</a>, <a href="https://www.goodreads.com/book/show/4845427-the-choice?ac=1&amp;from_search=true&amp;qid=FWBh4M06P9&amp;rank=3">The Choice</a>, <a href="https://www.goodreads.com/book/show/848514.Critical_Chain">Critical Chain</a>) and his thinking tools. One of the thinking tools is called the Current Reality Tree (CRT). It is used when you are trying to find the root problem of a complex problem. In this case, just out …</p> </div><!-- /.entry-content -->
-        </article></li>
-        <li><article class="hentry">
-                <header> <h2 class="entry-title"><a href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html" rel="bookmark" title="Permalink to It's not about the number of vulnerabilities. It's about the risk.">It's not about the number of vulnerabilities. It's about the risk.</a></h2> </header>
-                <footer class="post-info">
-                    <time class="published" datetime="2021-05-20T00:00:00+02:00"> jue 20 mayo 2021 </time>
-                    <address class="vcard author">By
-                        <a class="url fn" href="https://fcano.github.io/author/fcano.html">fcano</a>
-                    </address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>These are my thoughts about vulnerability management metrics after reading <a href="https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705">Business-friendly vulnerability management metrics</a>.</p>
+		<link rel="stylesheet" href="https://fcano.github.io/theme/css/foundation.css" />
+		<link rel="stylesheet" href="https://fcano.github.io/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="https://fcano.github.io/theme/css/custom.css" />
+
+
+		<script src="https://fcano.github.io/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+		<link href="https://fcano.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Atom Feed" />
+
+<script>var _gaq=[['_setAccount','UA-197636836-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">Cybersecurity&nbsp;Notes</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="https://fcano.github.io">Home</a></li>
+						<li><label>Categories</label></li>
+							<li class="active"><a href="https://fcano.github.io/category/security.html">Security</a></li>
+
+						<li><label>Links</label></li>
+
+
+
+						<li><label>Social</label></li>
+							<li><a href="http://github.com/fcano">github</a></li>
+							<li><a href="http://twitter.com/florenciocano">twitter</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="https://fcano.github.io/">Cybersecurity Notes</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li class="active"><a href="https://fcano.github.io/category/security.html">Security</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>Category: Security</h2>
+								</div>
+							</div>
+
+<article>
+	<h3><a href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html">Looking for the root cause of current cybersecurity problems</a></h3>
+	<h6>Written by <a href="https://fcano.github.io/author/fcano.html">fcano</a> in <a href="https://fcano.github.io/category/security.html">Security</a> on vie 21 mayo 2021.</h6>
+	<p>I love Goldratt books (<a href="https://www.goodreads.com/book/show/113934.The_Goal">The Goal</a>, <a href="https://www.goodreads.com/book/show/157385.It_s_Not_Luck?from_search=true&amp;from_srp=true&amp;qid=dQEjWkU3CN&amp;rank=1">It's Not Luck</a>, <a href="https://www.goodreads.com/book/show/4845427-the-choice?ac=1&amp;from_search=true&amp;qid=FWBh4M06P9&amp;rank=3">The Choice</a>, <a href="https://www.goodreads.com/book/show/848514.Critical_Chain">Critical Chain</a>) and his thinking tools. One of the thinking tools is called the Current Reality Tree (CRT). It is used when you are trying to find the root problem of a complex problem. In this case, just out …</p>
+		<p class="continue"><a href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+<article>
+	<h3><a href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html">It's not about the number of vulnerabilities. It's about the risk.</a></h3>
+	<h6>Written by <a href="https://fcano.github.io/author/fcano.html">fcano</a> in <a href="https://fcano.github.io/category/security.html">Security</a> on jue 20 mayo 2021.</h6>
+	<p>These are my thoughts about vulnerability management metrics after reading <a href="https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705">Business-friendly vulnerability management metrics</a>.</p>
 <p>The metrics described in the article above mainly measure the time that our assets have been vulnerable, taking into account the intensity (the number of vulnerabilities). The information of vulnerabilities is taken from vulnerability scanners.</p>
-<p>The …</p> </div><!-- /.entry-content -->
-        </article></li>
-</ol><!-- /#posts-list -->
-</section><!-- /#content -->
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
-        </footer><!-- /#contentinfo -->
-</body>
+<p>The …</p>
+		<p class="continue"><a href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html">Continue reading &raquo;</a></p>
+</article>
+<hr />
+
+
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="http://github.com/fcano">github</a></li>
+									<li><a href="http://twitter.com/florenciocano">twitter</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="https://fcano.github.io/theme/js/jquery.js"></script>
+		<script src="https://fcano.github.io/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
 </html>
