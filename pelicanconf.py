@@ -18,6 +18,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+DISQUS_SITENAME = 'cybersecurity-notes'
+
 # Social widget
 SOCIAL = (('twitter', 'http://twitter.com/florenciocano'),
           ('github', 'http://github.com/fcano'),)
