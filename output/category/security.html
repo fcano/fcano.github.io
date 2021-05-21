@@ -1,174 +1,126 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <meta name="generator" content="Pelican" />
-        <title>Cybersecurity Notes - Security</title>
-        <link rel="stylesheet" href="https://fcano.github.io/theme/css/main.css" />
-        <link href="https://fcano.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Atom Feed" />
-</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>Blog - Cybersecurity Notes</title>
+    <meta charset="utf-8" />
+    <link href="http://fonts.googleapis.com/css?family=Arimo:400,700|Inika" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://fcano.github.io/theme/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="https://fcano.github.io/theme/pastie.css" />
+    <link href="https://fcano.github.io/" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Atom Feed" />
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://fcano.github.io/">Cybersecurity Notes</a></h1>
-                <nav><ul>
-                    <li class="active"><a href="https://fcano.github.io/category/security.html">Security</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+<script type="text/javascript">
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html">Looking for the root cause of current cybersecurity problems</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2021-05-21T00:00:00+02:00">
-                Published: vie 21 mayo 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-21T00:00:00+02:00">
-                Updated: vie 21 mayo 2021
-        </abbr>
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-197636836-1']);
+  _gaq.push(['_trackPageview']);
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://fcano.github.io/author/fcano.html">fcano</a>
-        </address>
-<p>In <a href="https://fcano.github.io/category/security.html">Security</a>.</p>
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-</footer><!-- /.post-info --><p>I love Goldratt books (<a href="https://www.goodreads.com/book/show/113934.The_Goal">The Goal</a>, <a href="https://www.goodreads.com/book/show/157385.It_s_Not_Luck?from_search=true&amp;from_srp=true&amp;qid=dQEjWkU3CN&amp;rank=1">It's Not Luck</a>, <a href="https://www.goodreads.com/book/show/4845427-the-choice?ac=1&amp;from_search=true&amp;qid=FWBh4M06P9&amp;rank=3">The Choice</a>, <a href="https://www.goodreads.com/book/show/848514.Critical_Chain">Critical Chain</a>) and his thinking tools. One of the thinking tools is called the Current Reality Tree (CRT). It is used when you are trying to find the root problem of a complex problem. In this case, just out of curiosity, I have tried to write a CRT for the problem of cybersecurity: Why are big and important companies having severe cybersecurity breaches? What can we do to improve this situation?</p>
-<p>I'm not going to explain how to design a CRT. I'm going to show mine and explain it. What you need to know is that an arrow from A to B means that A causes B. We say A is a necessary condition for B to happen. If we eliminate or fix A, B will not happen.  If there is an ellipse on top of multiple arrows, it means that all the causes (A, A', A'') must be met for B to happen.</p>
-<p>On the top of the tree we have the undesirable effects (UDEs). UDEs are what we see that is not working well and what we want to solve.</p>
-<p>The CRT does not state any solutions, only problems (causes of the UDEs, causes of the causes of the UDEs, etc.). The last causes, those on the bottom, are the root causes. That means that if we solve the root causes, we will solve the the problems derived from them.</p>
-<p>Goldratt's principle of Inherent Simplicity states that any complex problem, at the end, only have a few (probably one or two) root causes. That is fantastic because it means that the tree is not infinite, but it ends in only a few of causes.</p>
-<p>This is the CRT that I wrote for the cybersecurity problem:</p>
-<p><img alt="Cybersecurity CRT" src="/images/cybersecurity_crt.jpg" width="780px"></p>
-<h1>Companies continue having severe cybersecurity incidents.</h1>
-<p>Our main and starting UDE is on the top: Companies continue having severe cybersecurity incidents. That is a fact. But, what are the reasons? For me, the first direct reason, we may like it or not, is that the companies don't have enough cybersecurity controls. If they had enough cybersecurity controls, independently of everything else, severe cybersecurity incidents won't happen. Let's continue with the causes for "Companies don't have enough cybersecurity controls".</p>
-<p>Companies don't have enough cybersecurity controls due to one or more of these reasons:</p>
-<ul>
-<li>Companies don't know how to secure their systems.</li>
-<li>Companies don't want to secure their systems.</li>
-<li>Companies don't know they need to secure their systems.</li>
-</ul>
-<p>I have not been able to think about other reasons. Let me know if you can think about another one.</p>
-<h1>Companies don't know how to secure their systems.</h1>
-<p>One of the causes of "Companies continue having severe cybersecurity incidents" is that "Companies don't know how to secure their systems". They don't know what security controls would reduce the probability or the impact of a security threat to materialize in their company and cause severe damage. In the case of ransomware, that is the most pervasive and damaging security threat currently, this means that companies don't know which security controls they have to implement to avoid the ransomware to infect their systems and random their data.</p>
-<p>This is not the only reason, there are two more. But while this reason is true, we will have the problem.</p>
-<p>I see two reason why companies don't have this information:</p>
-<ul>
-<li>Companies don't have people who know how to secure their systems.</li>
-<li>Companies don't have people whose mission is secure their systems.</li>
-</ul>
-<p>In the first case, the employees that the company has assigned to this task, protecting their systems and avoid having security breaches, don't know what security measures they have to implement.</p>
-<p>In the second case, the companies don't even have people dedicated to that.</p>
-<p>Let's go down following the branch of causes-effects that explain why "Companies don't have people who know how to secure their systems".</p>
-<h2>Companies don't have people who know how to secure their systems.</h2>
-<p>Why people that are dedicated to security don't know which security measures can be implemented to reduce the risk of a security breach to acceptable levels? I know that in many cases these professional do know what to do, but the company don't let them do it. That is another branch under "Companies don't want to secure their systems", so we are not talking about this case here. Here I'm talking about not really knowing how to be protected against this.</p>
-<p>I have thought about two reasons:</p>
-<ul>
-<li>Lack of cybersecurity people trained in technical security controls.</li>
-<li>People that work in cybersecurity in companies are not cybersecurity professionals.</li>
-</ul>
-<p>If people that work in cybersecurity don't know the right security measures may be because they lack training or they are not really cybersecurity professionals.</p>
-<p>The second case happens when management has heard something about security, maybe in the news or maybe because they need to comply with some regulation related to security, and they assign one IT person, that is not a security professional, to be in charge of security. This happens usually because "Management and IT is not aware of the importance of having cybersecurity professionals in the team" and that happens, in general, because there is a "Lack of management cybersecurity awareness". This is our first root cause. We will talk about it again later.</p>
-<p>Let's continue with the other branch. Why there is a "Lack of cybersecurity people trained in technical security controls."? It is obvious that the reason is that these cybersecurity people don't get training. But, why? There are two possible reasons:</p>
-<ul>
-<li>Cybersecurity people they don't need to get training.</li>
-<li>Good training is expensive and there is a lack of good free security training.</li>
-</ul>
-<p>"Cybersecurity people they don't need to get training" is being reinforced by the fact that "Lack of cybersecurity people trained in technical security controls". The less training, the less you think you need training. Dunning-Kruger effect in action. The CRT theory says that reinforcing loops like this are really powerful and we should focus on them when we want to find solutions.</p>
-<p>About the second, I'm not completely sure about that. Maybe the material is there but people don't know it or don't do the effort of reading and studying it. In any case, the reason for these two cases, in my opinion, is the same. We have a "Cybersecurity community that rewards more the image than the knowledge". Some security rock stars that have been appearing in mass media have sent the message that security is cool and easy, without giving credit or raising awareness of the effort required to be a good security professional.</p>
-<h2>Our first root causes.</h2>
-<p>By following this branch, we have arrived to two root causes. If you think that the cause-effect logic that I have used is right, you would agree with me that if we change these two root causes, we will be able to revert the UDE "Companies don’t know how to secure their systems". I will talk about solutions after having "read" the whole tree.</p>
-<h1>Companies don’t want to secure their systems.</h1>
-<p>Are there companies that don't want to secure their systems? Yes, but they have reasons. In this part of the tree I'm going to explore that.</p>
-<ul>
-<li>Companies don't want to spend budget in cybersecurity.</li>
-<li>Companies do think it is ok to spend budget, but all the cybersecurity controls they know affecte negatively on the business (e.g. to its agility).</li>
-</ul>
-<p>Let's start with the second, which cause is clear for me and we have already talked about it. Bad cybesecurity professionals only can think about security measures that impact negatively on the business. Thinking about security measures that are aligned with the business is difficult and it takes effort. They are not usually straighfoward in the books...you have to take what books say and transform and adapt it to a specific business. Some bad cybersecurity professional would want the the business just implements whatever they say, but the business revels against that.</p>
-<p>Good security professionals search for the best solutions for the business. Non trivial solutions that do not affecte negatively the business or the negative impact is clearly worth it and makes sense. Bad security professional are not bad people :), they lack security training. We already have explored that and we know the root causes.</p>
-<p>Let's explore now why companies don't want to spend money on cybersecurity. Companies do spend money in things they think they need. So, the reason is clear: the company (management) do think that cybersecurity is not necessary so they choose not to spend money nor time in cybersecurity. Management thinks so because they are not aware of the security risks. They are usually very busy, and they need people around them that explains them what they need to know in a very easy straighforward way. Here we have a reinforcing cycle again...because companies don't have people whose mission is security, management don't have people around them that talks about security and explains and make the risks visible.</p>
-<p>There is one more reason that explains why management are not aware of cybersecurity risks: in the cases that the company do have cybersecurity people, sometimes, these cybersecurity people don't know how to talk about risks to management. Cybersecurity people is usually technical people. And we, technical people, do have in general a problem for explaining things in an easy understandable way. The reason for this is again lack of good cybersecurity training or lack of training aimed to talk about risks and how cyber risks affects companies.</p>
-<h1>Root causes and solutions</h1>
-<p>At the end, based on the logic explained, we have that the root causes of "Companies continue having severe cybersecurity incidents" are:</p>
-<p>1- Security community that rewards image over knowledge.
-2- Lack of management cybersecurity awareness.</p>
-<p>Let's talk about solutions.</p>
-<p>For the second root cause, "Lack of management cybersecurity awareness", I think it is something that will improve with time. If cybersecurity is as important as we think it is, the number of security incidents will raise the awareness in a natural way. In my opinion, current security incidents due to ransomware, and its presence in mass media, are already raising these awareness levels. What we can do about this is talking more about them. To talk about them in a divulgative undertandable way that company managers can understand.</p>
-<p>About number one, it is in hour hand to improve the situation. There are plenty of cons and opportunities to improve the security community. It is as easy as recognizing the effort of good talks and ignoring bad talks that only talk about cool hacking, instead of hard technical work. We can also contribute to the community with good open source tools that help improve cybersecurity status in general. We can also develop better open materials for everyone to consumme: a blog, a podcast, whatever.</p>
-<h1>Improving the CRT</h1>
-<p>I would like to improve the CRT with facts that I have not taking into account, so please, don't hesitate in sending your comments.</p><p>There are <a href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html#disqus_thread">comments</a>.</p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
+</script>
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html" rel="bookmark"
-                           title="Permalink to It's not about the number of vulnerabilities. It's about the risk.">It's not about the number of vulnerabilities. It's about the risk.</a></h1>
-                </header>
+  </head>
 
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="span8">
+<div id="content">
+<h2>Articles in the Security category</h2>
+
+<ul class="unstyled">
+        <li>
+            <div>
+                <div class="header">
+                    <h2>Looking for the root cause of current cybersecurity problems</h2>
+                </div>
+                <p class="meta"><small><span><a href="https://fcano.github.io/author/fcano/">fcano</a> - </span><span>vie 21 mayo 2021</span> - <span class="tags"></span></small></p>
                 <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-05-20T00:00:00+02:00">
-                Published: jue 20 mayo 2021
-        </abbr>
-		<br />
-        <abbr class="modified" title="2021-05-20T00:00:00+02:00">
-                Updated: jue 20 mayo 2021
-        </abbr>
+                    <p>I love Goldratt books (<a href="https://www.goodreads.com/book/show/113934.The_Goal">The Goal</a>, <a href="https://www.goodreads.com/book/show/157385.It_s_Not_Luck?from_search=true&amp;from_srp=true&amp;qid=dQEjWkU3CN&amp;rank=1">It's Not Luck</a>, <a href="https://www.goodreads.com/book/show/4845427-the-choice?ac=1&amp;from_search=true&amp;qid=FWBh4M06P9&amp;rank=3">The Choice</a>, <a href="https://www.goodreads.com/book/show/848514.Critical_Chain">Critical Chain</a>) and his thinking tools. One of the thinking tools is called the Current Reality Tree (CRT). It is used when you are trying to find the root problem of a complex problem. In this case, just out …</p>
+                </div><!-- /.entry-content -->
+                <div class="row">
+                    <div class="span4">
+                        <a class="btn btn-small disabled" href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html#disqus_thread"></a>
+                    </div>
+                    <div class="span1 offset3">
+                        <a class="btn btn-small" href="https://fcano.github.io/looking-for-root-cause-current-cybersecurity-problems.html" rel="bookmark" title="Permalink to Looking for the root cause of current cybersecurity problems">Mehr</a>
+                    </div>
+                </div>
+            </div>
+        </li>
 
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://fcano.github.io/author/fcano.html">fcano</a>
-        </address>
-<p>In <a href="https://fcano.github.io/category/security.html">Security</a>.</p>
-
-</footer><!-- /.post-info -->                <p>These are my thoughts about vulnerability management metrics after reading <a href="https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705">Business-friendly vulnerability management metrics</a>.</p>
+        <li><hr /></li>
+        <li>
+            <div>
+                <div class="header">
+                    <h2>It's not about the number of vulnerabilities. It's about the risk.</h2>
+                </div>
+                <p class="meta"><small><span><a href="https://fcano.github.io/author/fcano/">fcano</a> - </span><span>jue 20 mayo 2021</span> - <span class="tags"></span></small></p>
+                <div class="entry-content">
+                    <p>These are my thoughts about vulnerability management metrics after reading <a href="https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705">Business-friendly vulnerability management metrics</a>.</p>
 <p>The metrics described in the article above mainly measure the time that our assets have been vulnerable, taking into account the intensity (the number of vulnerabilities). The information of vulnerabilities is taken from vulnerability scanners.</p>
 <p>The …</p>
-                <a class="readmore" href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html">read more</a>
-<p>There are <a href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html#disqus_thread">comments</a>.</p>                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://fcano.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+                </div><!-- /.entry-content -->
+                <div class="row">
+                    <div class="span4">
+                        <a class="btn btn-small disabled" href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html#disqus_thread"></a>
+                    </div>
+                    <div class="span1 offset3">
+                        <a class="btn btn-small" href="https://fcano.github.io/its-not-about-number-of-vulnerabilities-its-about-the-risk.html" rel="bookmark" title="Permalink to It's not about the number of vulnerabilities. It's about the risk.">Mehr</a>
+                    </div>
+                </div>
+            </div>
+        </li>
 
-                            <li><a href="http://twitter.com/florenciocano">twitter</a></li>
-                            <li><a href="http://github.com/fcano">github</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
+        <li><hr /></li>
+</ul><!-- /#posts-list -->
 
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
+<div class="pagination pagination-centered">
+    <ul>
+        <li class="active"><a href="#">1</a></li>
+    </ul>
+</div>
+</div><!-- /#content -->
+        </div>
+        <div class="span3 offset1">
+          <div class="well">
+            <ul class="nav nav-list">
+              <li class="nav-header">Blog</li>
+              <li ><a href="https://fcano.github.io">Index</a></li>
+              <li ><a href="https://fcano.github.io/tags/">Tags</a></li>
+              <li ><a href="https://fcano.github.io/archives/">Archiv</a></li>
+            </ul>
+          </div><!-- /#menu -->
+        </div>
+      </div>
 
-                <p>The theme is by <a href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+      <hr />
+
+      <div class="row">
+        <div class="span12">
+          <div id="about">
+            <p>Proudly powered by <a href="http://twitter.github.com/bootstrap/">bootstrap</a>, <a href="http://docs.notmyidea.org/alexis/pelican/">pelican</a>, <a href="http://python.org">python</a> and <a href="http://www.julo.ch/about/">Alex</a>!</p>
+          </div><!-- /#about -->
+        </div><!-- /#contentinfo -->
+      </div>
+    </div>
 
     <script type="text/javascript">
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cybersecurity-notes'; // required: replace example with your forum shortname
 
-    ga('create', 'UA-197636836-1', 'auto');
-    ga('send', 'pageview');
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
     </script>
-<script type="text/javascript">
-    var disqus_shortname = 'cybersecurity-notes';
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-</script>
-</body>
+
+  </body>
 </html>
