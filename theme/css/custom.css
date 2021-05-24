@@ -137,3 +137,14 @@ table.highlighttable {
 	margin: 0.55rem 0.5rem 0 0;
 	padding: 0;
 }
+
+.author_box {
+	max-width: 20em;
+	float: left;
+	background-color: #eeeeee;
+	border-style: groove;
+	margin: 2px 5px 2px 0px;
+	padding-bottom: 5px;
+	padding-right: 25px;
+	padding-left: 5px;	
+}
