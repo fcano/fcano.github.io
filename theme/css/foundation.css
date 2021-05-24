@@ -2933,7 +2933,7 @@ a {
 
 /* Default paragraph styles */
 p {
-  font-family: inherit;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: normal;
   font-size: 1rem;
   line-height: 1.6;
