@@ -16,9 +16,7 @@
 		<script src="https://fcano.github.io/theme/js/modernizr.js"></script>
 
 		<!-- Feeds -->
-		<link href="https://fcano.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Atom Feed" />
 
-<script>var _gaq=[['_setAccount','UA-197636836-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
 
 		<!-- mathjax config similar to math.stackexchange -->
 		<script type="text/x-mathjax-config">
@@ -92,8 +90,7 @@
 						<div class="medium-9 small-12 columns" role="content">
 <article>
 	<h2>New important security feature in the Linux kernel: Landlock</h2>
-	<h1>Landlock</h1>
-<p>Landlock is yet another sandoxing mechanism for Linux, but with important differences. Its goal is to make possible to restrict access rights to different Linux elements (e.g. filesystem access), in a secure way, without admin privileges and in a programmatic way (from within the applications code). Because LandLock is a stackable LSM (Linux Security Module), it makes possible to create safe security sandboxes as new security layers, in addition to the existing system-wide access-controls. This kind of sandbox is expected to help mitigate the security impact of bugs or unexpected/malicious behaviors in user space applications. It is important to remark that Landlock empowers any process, included unprivileged ones, to restrict themselves, reducing the potential impact in case of malicious behavior.</p>
+	<p>Landlock is yet another sandoxing mechanism for Linux, but with important differences. Its goal is to make possible to restrict access rights to different Linux elements (e.g. filesystem access), in a secure way, without admin privileges and in a programmatic way (from within the applications code). Because LandLock is a stackable LSM (Linux Security Module), it makes possible to create safe security sandboxes as new security layers, in addition to the existing system-wide access-controls. This kind of sandbox is expected to help mitigate the security impact of bugs or unexpected/malicious behaviors in user space applications. It is important to remark that Landlock empowers any process, included unprivileged ones, to restrict themselves, reducing the potential impact in case of malicious behavior.</p>
 <h2>Linux Security Modules (LSMs)</h2>
 <p>Linux Security Module (LSM) is a framework[6] that provides various security checks to be hooked by the kernel. The name may be confusing as they are not loadable kernel modules. They are selectable at build-time via CONFIG_DEFAULT_SECURITY and can be overridden at boot-time via the "security=..." kernel command line argument.</p>
 <p>The primary users of the LSM interface are Mandatory Access Control (MAC) extensions which provide a comprehensive security policy. Examples include SELinux, Smack, Tomoyo, AppArmor, and now, Landlock. Most LSMs choose to extend the capabilities system, building their checks on top of the defined capability hooks, but that is not the case of Landlock[2].</p>
@@ -136,22 +133,6 @@
 </article>
 
 <hr/>
-<div class="row">
-	<div class="small-12 columns">
-		<h3>Comments</h3>
-		<div id="disqus_thread"></div>
-		<script type="text/javascript">
-			var disqus_shortname = 'cybersecurity-notes';
-			(function() {
-				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-				dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-			})();
-		</script>
-		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-	</div>
-</div>
 						</div>
 						<!-- End Main Content -->
 						<!-- Sidebar -->
