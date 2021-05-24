@@ -1,0 +1,196 @@
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Cybersecurity Notes</title>
+		<meta name="description" content="">
+		<meta name="author" content="fcano">
+
+		<link rel="stylesheet" href="https://fcano.github.io/theme/css/foundation.css" />
+		<link rel="stylesheet" href="https://fcano.github.io/theme/css/pygment/monokai.css" />
+		<link rel="stylesheet" href="https://fcano.github.io/theme/css/custom.css" />
+
+
+		<script src="https://fcano.github.io/theme/js/modernizr.js"></script>
+
+		<!-- Feeds -->
+		<link href="https://fcano.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Cybersecurity Notes Atom Feed" />
+
+<script>var _gaq=[['_setAccount','UA-197636836-1'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+
+		<!-- mathjax config similar to math.stackexchange -->
+		<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+			jax: ["input/TeX", "output/HTML-CSS"],
+			tex2jax: {
+				inlineMath: [ ['$', '$'] ],
+				displayMath: [ ['$$', '$$']],
+				processEscapes: true,
+				skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+			},
+			messageStyle: "none",
+			"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+		});
+		</script>
+		<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	</head>
+	<body>
+		<div class="off-canvas-wrap">
+			<div class="inner-wrap">
+				<!-- mobile top bar to activate nav -->
+				<nav class="tab-bar show-for-small">
+					<section class="left-small">
+						<a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+					</section>
+
+					<section class="middle tab-bar-section">
+						<h1 class="title">Cybersecurity&nbsp;Notes</h1>
+					</section>
+				</nav>
+
+				<!-- mobile side bar nav -->
+				<aside class="left-off-canvas-menu">
+					<ul class="off-canvas-list">
+						<li><a href="https://fcano.github.io">Home</a></li>
+						<li><label>Categories</label></li>
+							<li class="active"><a href="https://fcano.github.io/category/security.html">Security</a></li>
+
+						<li><label>Links</label></li>
+
+
+
+						<li><label>Social</label></li>
+							<li><a href="http://github.com/fcano">github</a></li>
+							<li><a href="http://twitter.com/florenciocano">twitter</a></li>
+					</ul>	
+				</aside>
+
+				<!-- top bar nav -->
+				<nav class="top-bar hide-for-small-only" data-topbar>
+					<ul class="title-area">
+						<li class="name">
+							<h1><a href="https://fcano.github.io/">Cybersecurity Notes</a></h1>
+						</li>
+					</ul>
+
+					<section class="top-bar-section">
+						<ul class="left">
+								<li class="active"><a href="https://fcano.github.io/category/security.html">Security</a></li>
+						</ul>
+                        <ul class="right">                                                                                                                                           
+                                                                                                                                             
+                        </ul>  
+					</section>
+				</nav>
+
+				<!-- Main Page Content and Sidebar -->
+				<section class="main-section">
+					<div class="row">
+						<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+<article>
+	<h2>New important security feature in the Linux kernel: Landlock</h2>
+	<h1>Landlock</h1>
+<p>Landlock is yet another sandoxing mechanism for Linux, but with important differences. Its goal is to make possible to restrict access rights to different Linux elements (e.g. filesystem access), in a secure way, without admin privileges and in a programmatic way (from within the applications code). Because LandLock is a stackable LSM (Linux Security Module), it makes possible to create safe security sandboxes as new security layers, in addition to the existing system-wide access-controls. This kind of sandbox is expected to help mitigate the security impact of bugs or unexpected/malicious behaviors in user space applications. It is important to remark that Landlock empowers any process, included unprivileged ones, to restrict themselves, reducing the potential impact in case of malicious behavior.</p>
+<h2>Linux Security Modules (LSMs)</h2>
+<p>Linux Security Module (LSM) is a framework[6] that provides various security checks to be hooked by the kernel. The name may be confusing as they are not loadable kernel modules. They are selectable at build-time via CONFIG_DEFAULT_SECURITY and can be overridden at boot-time via the "security=..." kernel command line argument.</p>
+<p>The primary users of the LSM interface are Mandatory Access Control (MAC) extensions which provide a comprehensive security policy. Examples include SELinux, Smack, Tomoyo, AppArmor, and now, Landlock. Most LSMs choose to extend the capabilities system, building their checks on top of the defined capability hooks, but that is not the case of Landlock[2].</p>
+<p>The design of LSM is described in [7].</p>
+<h2>Characteristics of Landlock</h2>
+<p>A key feature of Landlock is that it allows unprivileged users to restrict processes that they run so it can be embeded within the applications themselves. It is not an administrator's mechanism like SELinux, but a user feature. In SELinux or Smack[8], setting policies is a privileged operation.</p>
+<p>On the other hand, Seccomp can be used to create sanboxes too, but it is limited. For example, it does not allow to filter system calls based on the paths of files they try to access, what Landlock do allow. By restricting what a running process can do, a Landlock-based sandbox can reduce the attack surface of the kernel and make the exploitation of vulnerabilities harder in general. In fact, Landlock is inspired by seccomp-bpf, but instead of filtering syscalls and their raw arguments, a Landlock rule can restrict the use of kernel objects like file hierarchies. The first versions of Landlock were based on eBPF,  but it isn't anymore [1].</p>
+<p>Landlock also takes inspiration from other OS sandbox mechanisms: XNU Sandbox, FreeBSD Capsicum or OpenBSD Pledge/Unveil.</p>
+<p>If a sandboxed program try to access anything outside of the given list (defined by a ruleset or many stacked rulesets), the forbidden call returns EPERM error, but the program is not killed [4].</p>
+<p>The question is, if a program is able to restrict its access, what prevents the same program to get again the permissions? LSM hooks are purely restrictive. They can reduce access, but cannot increase it[4]. So, unless there's a bug on the implementation, an attacker cannot escape from it.</p>
+<p>In its current form it is not possible to restrict some file-related actions accessible through these syscall families: chdir(2), truncate(2), stat(2), flock(2) chmod(2), chown(2) setxattr(2), ioctl(2), fcntl(2). This was intentional to reduce the code to be included in the kernel and to ease its review. Other subsystems are not covered either (e.g. network) [3].</p>
+<p>Table from [5].
+|            |   Fine-grained control    | Embedded policy   | Unprivileged use  |
+|------------|:-------------------------:|:-----------------:|:-----------------:|
+|SELinux     | X                         |                   |                   |
+|seccomp-bpf |                           | X                 | X                 |
+|namespaces  |                           | X                 | ~                 |
+|Landlock    | X                         | X                 | X                 |</p>
+<h2>How can Landlock be used</h2>
+<p>The main threat model may be seen as protecting from vulnerable (i.e. malicious) code[3]. But because Landlock policies can be defined by application developers, they also define their own threat model.</p>
+<p>For example, if a browser implements Landlock and restricts itself to the files it needs for running, a vulnerability that is exploitable and which allows code execution will have access only to the file hierarchies that are accessible by the Landlock ruleset defined for the browser, but not to all files and binaries accessible by the user that executes the browser process.</p>
+<p>With Landlock, one thing is what other MACs allow the process to access and a different thing is what the Landlock allows the process to access. Remember that LSM are stackable and restrictive so if standard permissions allow the process, capabilities allow the process, SELinux allows the process (or is disabled), but Landlock does not allow the process, the result will be that the process is not allowed to do that.</p>
+<p>The important thing for me is that with SELinux, the administrator needed to apply the rules for the application to work properly. With Landlock, the rules can be embeded in the application. Each application, in an ideal world, will come with its Landlock rulesets.</p>
+<h2>Proof of Concept</h2>
+<p>Example of a sandbox https://lore.kernel.org/lkml/20200511192156.1618284-10-mic@digikod.net/ ##FIXME{Fix. This seems to be able to launch a process that independently of the privileges of the user, is restricted at kernel level to access files and dirs outside those authorized}</p>
+<p>Here can be found an example of how to apply a landlock rule: <a href="https://landlock.io/linux-doc/landlock-v34/userspace-api/landlock.html">https://landlock.io/linux-doc/landlock-v34/userspace-api/landlock.html</a>.</p>
+<h2>When will be Landlock available</h2>
+<p>Landlock will be available in Linux 5.13 ##FIXME{Also for RHEL? RHEL9?}. ##FIXME{How can I test it now?}</p>
+<h1>Resources</h1>
+<p>[1]<a href="https://landlock.io/">https://landlock.io/</a>
+[2]<a href="https://twitter.com/kees_cook/status/1388758944433147905">https://twitter.com/kees_cook/status/1388758944433147905</a>
+[3]<a href="https://lore.kernel.org/lkml/f646e1c7-33cf-333f-070c-0a40ad0468cd@digikod.net/">https://lore.kernel.org/lkml/f646e1c7-33cf-333f-070c-0a40ad0468cd@digikod.net/</a>
+[4] https://lwn.net/Articles/703876/
+[5] https://landlock.io/talks/2018-07-04_landlock-pts.pdf
+[6] https://www.kernel.org/doc/html/v4.15/admin-guide/LSM/index.html
+[7] https://www.usenix.org/legacy/event/sec02/full_papers/wright/wright_html/index.html ##FIXME{Pending}
+[8] https://www.kernel.org/doc/html/v4.14/admin-guide/LSM/Smack.html</p>
+	<hr/>
+	<h6>Written by <a href="https://fcano.github.io/author/florencio-cano.html">Florencio Cano</a> in <a href="https://fcano.github.io/category/security.html">Security</a> on lun 24 mayo 2021.</h6>
+</article>
+
+<hr/>
+<div class="row">
+	<div class="small-12 columns">
+		<h3>Comments</h3>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+			var disqus_shortname = 'cybersecurity-notes';
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+		<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	</div>
+</div>
+						</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+								</ul>
+							</div>
+
+
+							<div class="panel">
+								<h5>Social</h5>
+								<ul class="side-nav">
+									<li><a href="http://github.com/fcano">github</a></li>
+									<li><a href="http://twitter.com/florenciocano">twitter</a></li>
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
+					</div>
+
+					<!-- Footer -->
+					<footer class="row">
+						<div class="medium-9 small-12">
+							<hr/>
+							<p class="text-center">Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://foundation.zurb.com/">Zurb Foundation</a>. Theme by <a href="http://hamaluik.com">Kenton Hamaluik</a>.</p>
+						</div>
+					</footer>
+					<!-- End Footer -->
+				</section>
+				<a class="exit-off-canvas"></a>
+			</div><!--off-canvas inner-->
+		</div><!--off-canvas wrap-->
+
+		<script src="https://fcano.github.io/theme/js/jquery.js"></script>
+		<script src="https://fcano.github.io/theme/js/foundation.min.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+	</body>
+</html>
