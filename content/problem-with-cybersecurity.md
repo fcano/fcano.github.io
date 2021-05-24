@@ -3,7 +3,7 @@ date: 2021-05-21
 modified: 2021-05-21
 category: Security
 slug: looking-for-root-cause-current-cybersecurity-problems
-author: fcano
+author: Florencio Cano
 
 I love Goldratt books ([The Goal](https://www.goodreads.com/book/show/113934.The_Goal), [It's Not Luck](https://www.goodreads.com/book/show/157385.It_s_Not_Luck?from_search=true&from_srp=true&qid=dQEjWkU3CN&rank=1), [The Choice](https://www.goodreads.com/book/show/4845427-the-choice?ac=1&from_search=true&qid=FWBh4M06P9&rank=3), [Critical Chain](https://www.goodreads.com/book/show/848514.Critical_Chain)) and his thinking tools. One of the thinking tools is called the Current Reality Tree (CRT). It is used when you are trying to find the root problem of a complex problem. In this case, just out of curiosity, I have tried to write a CRT for the problem of cybersecurity: Why are big and important companies having severe cybersecurity breaches? What can we do to improve this situation?
 

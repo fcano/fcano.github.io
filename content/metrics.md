@@ -3,7 +3,7 @@ date: 2021-05-20
 modified: 2021-05-20
 category: Security
 slug: its-not-about-number-of-vulnerabilities-its-about-the-risk
-author: fcano
+author: Florencio Cano
 
 These are my thoughts about vulnerability management metrics after reading [Business-friendly vulnerability management metrics](https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705).
 
