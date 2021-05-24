@@ -148,3 +148,7 @@ table.highlighttable {
 	padding-right: 25px;
 	padding-left: 5px;	
 }
+
+.author_box hr {
+	width: 40%;
+}
