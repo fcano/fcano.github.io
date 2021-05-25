@@ -18,6 +18,9 @@ CATEGORY_FEED_ATOM = 'feeds/{slug}.atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
 
+TAG_CLOUD_STEPS = 4
+TAG_CLOUD_MAX_ITEMS = 100
+
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = 'cybersecurity-notes'

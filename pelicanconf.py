@@ -30,3 +30,7 @@ DEFAULT_PAGINATION = 10
 #RELATIVE_URLS = True
 
 THEME = "pelican-themes/foundation-custom"
+
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["tag_cloud"]
+

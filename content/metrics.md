@@ -4,12 +4,13 @@ modified: 2021-05-20
 category: Security
 slug: its-not-about-number-of-vulnerabilities-its-about-the-risk
 author: Florencio Cano
+tags: metrics,risk,vulnerabilities
 
 These are my thoughts about vulnerability management metrics after reading [Business-friendly vulnerability management metrics](https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705).
 
 The metrics described in the article above mainly measure the time that our assets have been vulnerable, taking into account the intensity (the number of vulnerabilities). The information of vulnerabilities is taken from vulnerability scanners.
 
-The authors defend that their measurement is more advanced and better than just measuring the number of vulnerabilities and the number of assets. My opinion about how to measure the risk we face due to vulnerabilities is different.
+My opinion about how to measure the risk we face due to vulnerabilities is different.
 
 If I'm the person accountable for the risk of being affected by the exploitation of a vulnerability, what really matters to me is the real probability of a vulnerability being exploited, and the damage that can be done with it, and not the quantity of vulnerabilities or the time they are open. What I want to measure and control very well are the really dangerous vulnerabilities. So, I think we should focus on "quality" of the vulnerabilities, and not the number of them.
 
