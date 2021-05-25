@@ -3,7 +3,7 @@
 
 AUTHOR = 'fcano'
 SITENAME = 'Cybersecurity Notes'
-SITEURL = 'https://fcano.github.io'
+SITEURL = ''
 
 PATH = 'content'
 

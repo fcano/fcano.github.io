@@ -3,6 +3,7 @@ date: 2021-05-24
 modified: 2021-05-24
 category: Security
 slug: new-important-security-feature-in-linux-kernel-landlock
+tags: linux, kernel, landlock
 author: Florencio Cano
 
 Landlock is yet another sandoxing mechanism for Linux, but with important differences. Its goal is to make possible to restrict access rights to different Linux elements (e.g. filesystem access), in a secure way, without admin privileges and in a programmatic way (from within the applications code). Because LandLock is a stackable LSM (Linux Security Module), it makes possible to create safe security sandboxes as new security layers, in addition to the existing system-wide access-controls. This kind of sandbox is expected to help mitigate the security impact of bugs or unexpected/malicious behaviors in user space applications. It is important to remark that Landlock empowers any process, included unprivileged ones, to restrict themselves, reducing the potential impact in case of malicious behavior.
