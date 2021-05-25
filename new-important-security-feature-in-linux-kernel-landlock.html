@@ -98,44 +98,65 @@
 			lun 24 mayo 2021<br />
 			<a href="https://fcano.github.io/category/Security.html">Security</a>
 		</div>
-		<p>Landlock is yet another sandoxing mechanism for Linux, but with important differences. Its goal is to make possible to restrict access rights to different Linux elements (e.g. filesystem access), in a secure way, without admin privileges and in a programmatic way (from within the applications code). Because LandLock is a stackable LSM (Linux Security Module), it makes possible to create safe security sandboxes as new security layers, in addition to the existing system-wide access-controls. This kind of sandbox is expected to help mitigate the security impact of bugs or unexpected/malicious behaviors in user space applications. It is important to remark that Landlock empowers any process, included unprivileged ones, to restrict themselves, reducing the potential impact in case of malicious behavior.</p>
+		<p>Landlock is yet another sandoxing mechanism for Linux, but with important differences. Its goal is to make possible to restrict access rights to different Linux elements (e.g. filesystem access), in a secure and programmatic way, without the need of admin privileges. Because LandLock is a <a href="https://lwn.net/Articles/804906/">stackable LSM</a> (Linux Security Module), it makes it possible to create safe security sandboxes as new security layers, in addition to the existing system-wide access-controls. This kind of sandbox is expected to help mitigate the security impact of bugs or unexpected/malicious behaviors in user space applications. It is important to remark that Landlock empowers any process, included unprivileged ones, to restrict themselves, reducing the potential impact in case of malicious behavior.</p>
 <h2>Linux Security Modules (LSMs)</h2>
-<p>Linux Security Module (LSM) is a framework[6] that provides various security checks to be hooked by the kernel. The name may be confusing as they are not loadable kernel modules. They are selectable at build-time via CONFIG_DEFAULT_SECURITY and can be overridden at boot-time via the "security=..." kernel command line argument.</p>
-<p>The primary users of the LSM interface are Mandatory Access Control (MAC) extensions which provide a comprehensive security policy. Examples include SELinux, Smack, Tomoyo, AppArmor, and now, Landlock. Most LSMs choose to extend the capabilities system, building their checks on top of the defined capability hooks, but that is not the case of Landlock[2].</p>
-<p>The design of LSM is described in [7].</p>
+<p><a href="https://www.kernel.org/doc/html/v4.15/admin-guide/LSM/index.html">Linux Security Module</a> (LSM) is a framework that provides various security checks to be hooked by the kernel. The name may be confusing as they are not loadable kernel modules. They are selectable at build-time via CONFIG_DEFAULT_SECURITY and can be overridden at boot-time via the "security=..." kernel command line argument.</p>
+<p>The primary users of the LSM interface are Mandatory Access Control (MAC) extensions which provide a comprehensive security policy. Examples include <a href="https://www.redhat.com/en/topics/linux/what-is-selinux">SELinux</a>, <a href="https://www.kernel.org/doc/html/v4.14/admin-guide/LSM/Smack.html">Smack</a>, <a href="https://www.kernel.org/doc/html/v4.15/admin-guide/LSM/tomoyo.html">Tomoyo</a>, <a href="https://apparmor.net/">AppArmor</a>, and now, <a href="https://landlock.io/">Landlock</a>. Most LSMs choose to extend the capabilities system, building their checks on top of the defined capability hooks, but <a href="https://twitter.com/kees_cook/status/1388758944433147905">that is not the case of Landlock</a>.</p>
+<p>Here you can find more information about the <a href="https://www.usenix.org/legacy/event/sec02/full_papers/wright/wright_html/index.html">design of LSM</a>.</p>
 <h2>Characteristics of Landlock</h2>
-<p>A key feature of Landlock is that it allows unprivileged users to restrict processes that they run so it can be embeded within the applications themselves. It is not an administrator's mechanism like SELinux, but a user feature. In SELinux or Smack[8], setting policies is a privileged operation.</p>
-<p>On the other hand, Seccomp can be used to create sanboxes too, but it is limited. For example, it does not allow to filter system calls based on the paths of files they try to access, what Landlock do allow. By restricting what a running process can do, a Landlock-based sandbox can reduce the attack surface of the kernel and make the exploitation of vulnerabilities harder in general. In fact, Landlock is inspired by seccomp-bpf, but instead of filtering syscalls and their raw arguments, a Landlock rule can restrict the use of kernel objects like file hierarchies. The first versions of Landlock were based on eBPF,  but it isn't anymore [1].</p>
-<p>Landlock also takes inspiration from other OS sandbox mechanisms: XNU Sandbox, FreeBSD Capsicum or OpenBSD Pledge/Unveil.</p>
-<p>If a sandboxed program try to access anything outside of the given list (defined by a ruleset or many stacked rulesets), the forbidden call returns EPERM error, but the program is not killed [4].</p>
-<p>The question is, if a program is able to restrict its access, what prevents the same program to get again the permissions? LSM hooks are purely restrictive. They can reduce access, but cannot increase it[4]. So, unless there's a bug on the implementation, an attacker cannot escape from it.</p>
-<p>In its current form it is not possible to restrict some file-related actions accessible through these syscall families: chdir(2), truncate(2), stat(2), flock(2) chmod(2), chown(2) setxattr(2), ioctl(2), fcntl(2). This was intentional to reduce the code to be included in the kernel and to ease its review. Other subsystems are not covered either (e.g. network) [3].</p>
-<p>Table from [5].
-|            |   Fine-grained control    | Embedded policy   | Unprivileged use  |
-|------------|:-------------------------:|:-----------------:|:-----------------:|
-|SELinux     | X                         |                   |                   |
-|seccomp-bpf |                           | X                 | X                 |
-|namespaces  |                           | X                 | ~                 |
-|Landlock    | X                         | X                 | X                 |</p>
+<p>A key feature of Landlock is that it allows unprivileged users to restrict processes that they run and it can be embeded within the applications themselves. It is not an administrator's mechanism like SELinux, but a user feature. <a href="https://www.kernel.org/doc/html/v4.14/admin-guide/LSM/Smack.html">In SELinux or Smack, setting policies is a privileged operation</a>.</p>
+<p>On the other hand, <a href="https://man7.org/linux/man-pages/man2/seccomp.2.html">Seccomp</a> can be used to create sanboxes too, but it has some limitations. For example, it does not allow to filter system calls based on the paths of files they try to access, what Landlock do allow. By restricting what a running process can do, a Landlock-based sandbox can reduce the attack surface of the kernel and make the exploitation of vulnerabilities harder in general. In fact, Landlock is inspired by seccomp-bpf, but instead of filtering syscalls and their raw arguments, a Landlock rule can restrict the use of kernel objects like file hierarchies. The first versions of Landlock were based on eBPF, <a href="https://landlock.io">but it isn't anymore</a>.</p>
+<p>Landlock also takes inspiration from other OS sandbox mechanisms: <a href="https://github.com/dionthegod/XNUSandbox">XNU Sandbox</a>, <a href="https://wiki.freebsd.org/Capsicum">FreeBSD Capsicum</a> or <a href="https://man.openbsd.org/pledge.2">OpenBSD Pledge/Unveil</a>.</p>
+<p>If a sandboxed program try to access anything outside of the given list (defined by a ruleset or many stacked rulesets), the forbidden call returns EPERM error, but <a href="https://lwn.net/Articles/703876/">the program is not killed</a>.</p>
+<p>The question is, if a program is able to restrict its access, what prevents the same program to get again the permissions? LSM hooks are purely restrictive. They can reduce access, <a href="https://lwn.net/Articles/703876/">but cannot increase it</a>. So, unless there's a bug on the implementation, an attacker cannot escape from it.</p>
+<p>In its current form it is not possible to restrict some file-related actions accessible through these syscall families: chdir(2), truncate(2), stat(2), flock(2) chmod(2), chown(2) setxattr(2), ioctl(2), fcntl(2). This was intentional to reduce the code to be included in the kernel and to ease its review. <a href="https://lwn.net/Articles/703876/">Other subsystems are not covered either</a> (e.g. network).</p>
+<p>Table from <a href="https://landlock.io/talks/2018-07-04_landlock-pts.pdf">https://landlock.io/talks/2018-07-04_landlock-pts.pdf</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="center">Fine-grained control</th>
+<th align="center">Embedded policy</th>
+<th align="center">Unprivileged use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SELinux</td>
+<td align="center">X</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td>seccomp-bpf</td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+<tr>
+<td>namespaces</td>
+<td align="center"></td>
+<td align="center">X</td>
+<td align="center">~</td>
+</tr>
+<tr>
+<td>Landlock</td>
+<td align="center">X</td>
+<td align="center">X</td>
+<td align="center">X</td>
+</tr>
+</tbody>
+</table>
 <h2>How can Landlock be used</h2>
-<p>The main threat model may be seen as protecting from vulnerable (i.e. malicious) code[3]. But because Landlock policies can be defined by application developers, they also define their own threat model.</p>
+<p>The main threat model may be seen as <a href="https://lore.kernel.org/lkml/f646e1c7-33cf-333f-070c-0a40ad0468cd@digikod.net/">protecting from vulnerable (i.e. malicious) code</a>. But because Landlock policies can be defined by application developers, they also define their own threat model.</p>
 <p>For example, if a browser implements Landlock and restricts itself to the files it needs for running, a vulnerability that is exploitable and which allows code execution will have access only to the file hierarchies that are accessible by the Landlock ruleset defined for the browser, but not to all files and binaries accessible by the user that executes the browser process.</p>
 <p>With Landlock, one thing is what other MACs allow the process to access and a different thing is what the Landlock allows the process to access. Remember that LSM are stackable and restrictive so if standard permissions allow the process, capabilities allow the process, SELinux allows the process (or is disabled), but Landlock does not allow the process, the result will be that the process is not allowed to do that.</p>
 <p>The important thing for me is that with SELinux, the administrator needed to apply the rules for the application to work properly. With Landlock, the rules can be embeded in the application. Each application, in an ideal world, will come with its Landlock rulesets.</p>
 <h2>Proof of Concept</h2>
-<p>Example of a sandbox https://lore.kernel.org/lkml/20200511192156.1618284-10-mic@digikod.net/ ##FIXME{Fix. This seems to be able to launch a process that independently of the privileges of the user, is restricted at kernel level to access files and dirs outside those authorized}</p>
-<p>Here can be found an example of how to apply a landlock rule: <a href="https://landlock.io/linux-doc/landlock-v34/userspace-api/landlock.html">https://landlock.io/linux-doc/landlock-v34/userspace-api/landlock.html</a>.</p>
+<p><a href="https://lore.kernel.org/lkml/20200511192156.1618284-10-mic@digikod.net/">Example of a sandboxing process</a>. </p>
+<p><a href="https://landlock.io/linux-doc/landlock-v34/userspace-api/landlock.html">Here</a> can be found an example of <a href="https://landlock.io/linux-doc/landlock-v34/userspace-api/landlock.html">how to apply a landlock rule</a>.</p>
 <h2>When will be Landlock available</h2>
-<p>Landlock will be available in Linux 5.13 ##FIXME{Also for RHEL? RHEL9?}. ##FIXME{How can I test it now?}</p>
-<h1>Resources</h1>
-<p>[1]<a href="https://landlock.io/">https://landlock.io/</a>
-[2]<a href="https://twitter.com/kees_cook/status/1388758944433147905">https://twitter.com/kees_cook/status/1388758944433147905</a>
-[3]<a href="https://lore.kernel.org/lkml/f646e1c7-33cf-333f-070c-0a40ad0468cd@digikod.net/">https://lore.kernel.org/lkml/f646e1c7-33cf-333f-070c-0a40ad0468cd@digikod.net/</a>
-[4] https://lwn.net/Articles/703876/
-[5] https://landlock.io/talks/2018-07-04_landlock-pts.pdf
-[6] https://www.kernel.org/doc/html/v4.15/admin-guide/LSM/index.html
-[7] https://www.usenix.org/legacy/event/sec02/full_papers/wright/wright_html/index.html ##FIXME{Pending}
-[8] https://www.kernel.org/doc/html/v4.14/admin-guide/LSM/Smack.html</p>
+<p>Landlock will be available in Linux 5.13.</p>
 	</div>
 </article>
 
@@ -169,6 +190,46 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/risk.html">
+											risk
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/metrics.html">
+											metrics
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/landlock.html">
+											landlock
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/vulnerabilities.html">
+											vulnerabilities
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/kernel.html">
+											kernel
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/linux.html">
+											linux
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/root-cause-analysis.html">
+											root-cause-analysis
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/toc.html">
+											toc
+											</a>
+										</li>
 								</ul>
 							</div>
 

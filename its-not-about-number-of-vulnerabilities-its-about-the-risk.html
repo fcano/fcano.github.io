@@ -100,7 +100,7 @@
 		</div>
 		<p>These are my thoughts about vulnerability management metrics after reading <a href="https://medium.com/uber-security-privacy/business-friendly-vulnerability-management-metrics-cfd702fd7705">Business-friendly vulnerability management metrics</a>.</p>
 <p>The metrics described in the article above mainly measure the time that our assets have been vulnerable, taking into account the intensity (the number of vulnerabilities). The information of vulnerabilities is taken from vulnerability scanners.</p>
-<p>The authors defend that their measurement is more advanced and better than just measuring the number of vulnerabilities and the number of assets. My opinion about how to measure the risk we face due to vulnerabilities is different.</p>
+<p>My opinion about how to measure the risk we face due to vulnerabilities is different.</p>
 <p>If I'm the person accountable for the risk of being affected by the exploitation of a vulnerability, what really matters to me is the real probability of a vulnerability being exploited, and the damage that can be done with it, and not the quantity of vulnerabilities or the time they are open. What I want to measure and control very well are the really dangerous vulnerabilities. So, I think we should focus on "quality" of the vulnerabilities, and not the number of them.</p>
 <p>When we measure people about the number of vulnerabilities, they tend to fix more vulnerabilities. But that is not what we want to reduce the risk in an effective way. We want that they fix the vulnerabilities which have more probability of being exploited and that can cause more damage to my organization. I prefer that they fix much less vulnerabilities, but more important.</p>
 <p>In order to determine how important is a vulnerability, we have to think about the probability of exploitation and the damage (impact) it would cause if it is successfully exploited. In order to do this, we have to take into account if the vulnerability is exploitable from the outside of the company or only from the inside. Also, if in order to exploit the vulnerability the attacker can be unathenticated or if some kind of account or permissions are needed. Also it is important to know if the vulnerability is easy to exploit (if it is trivial to exploit, if there exist exploits in the wild) or if it is difficult (for example vulnerabilities that can be exploited only in theory, only in a lab, only by advanced researchers). We have to think also if there are mitigating security controls that reduce the probability of being exploited or the damage in case they are exploited.</p>
@@ -148,6 +148,46 @@
 							<div class="panel">
 								<h5>Tags</h5>
 								<ul class="tag-cloud">
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/risk.html">
+											risk
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/metrics.html">
+											metrics
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/landlock.html">
+											landlock
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/vulnerabilities.html">
+											vulnerabilities
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/kernel.html">
+											kernel
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/linux.html">
+											linux
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/root-cause-analysis.html">
+											root-cause-analysis
+											</a>
+										</li>
+										<li class="tag-4">
+											<a href="https://fcano.github.io/tag/toc.html">
+											toc
+											</a>
+										</li>
 								</ul>
 							</div>
 
